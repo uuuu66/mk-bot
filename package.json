@@ -2,15 +2,19 @@
   "name": "discordbot",
   "version": "0.0.1",
   "description": "discord bot practice 2021-05-31~",
+  "engines": {
+    "node": "14.x"
+  },
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app"
+    "start": "node app.js"
   },
   "author": "minki",
   "type": "commonjs",
   "license": "ISC",
+
   "dependencies": {
-    "@discordjs/opus": "^0.5.0",
+   
     "avconv": "^3.1.0",
     "axios": "^0.21.1",
     "discord.js": "^12.5.3",
