@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <fcntl.h>
+int main()
+{
+	int rfd,wfd;
+	char buf[2];
+	
+	rfd=open("./sample.txt",O_RDONLY,S_IRWXU);
+	if(rfd==-1)
+		printf("file open error\n");
+	
+	
+	wfd=creat("./hansung.txt", 0644);
+	if(wfd==-1)
+		printf("file creat error\n");
+	for(int i=0;i<8;i++){	
+	int pointer=5+i*12;
+		lseek(rfd,pointer,SEEK_SET);
+		read(rfd,buf,sizeof(buf));
+		write(wfd,buf,sizeof(buf));
+						
+	}
+	close(rfd);
+	close(wfd);
+	return 0;
+
+}
