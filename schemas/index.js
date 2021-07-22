@@ -6,7 +6,7 @@ const connect =()=>{
         mongoose.set('debug',true);
     
 
-mongoose.connect('mongodb://uuuu66:08976r54@127.0.0.1:27017/admin',{
+mongoose.connect('mongodb://uuuu66:08976r54!@127.0.0.1:27017/admin',{
     dbName:'cat',
     useNewUrlParser:true,
     useCreateIndex:true,
