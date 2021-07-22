@@ -1,0 +1,25 @@
+gameSet:
+mstia-go:게임참가
+mstia-st:게임시작
+mstia-cancle:게임취소
+
+gaming:
+라운드 1
+처음에 카드를 6장 받음
+
+
+라운드 1< 
+카드를 1장 받음
+
+
+mstia-in
+배에탐
+
+mstia-out
+배에서 내림
+
+
+
+한명씩 돌아가면서 선장이됨
+한턴마다 다른 마을로
+

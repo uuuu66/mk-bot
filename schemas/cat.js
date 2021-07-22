@@ -21,8 +21,8 @@ const catSchema=new Schema({
         required:true,
     },
     lastfeed:{
-        type:Date,
-        default:null,
+        type:Number,
+        default:0,
     },
     skills:{
         type:Array,
@@ -31,9 +31,19 @@ const catSchema=new Schema({
     isdelete:{
         type:Boolean,
         default:false,
+    },
+    level:{
+        type:Number,
+        defalut:1,
+    },
+    experience:{
+        type:Number,
+        default:0,
+    },
+    lastcall:{
+        type:Number,
+        default:0,
     }
     
-    
-
 });
 module.exports=mongoose.model("Cat",catSchema);

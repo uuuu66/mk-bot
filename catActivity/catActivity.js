@@ -1,6 +1,8 @@
 const mongoose=require('mongoose');
 const Cat=require('../schemas/cat');
-
+const catProperties=require('../catProperties.json');
+const catCharacters=catProperties.character[0];
+const catFriendship=catProperties.catFriendship;
 async function catActivity(cat,flag){
    const catname=cat.name;
    const catstats=cat.stats;
@@ -20,13 +22,14 @@ async function catActivity(cat,flag){
 
 
 function callCat(catname,catstats,catcharacter){
-    switch(catcharacter){
-        case"도도함":
-            if(catstats[1]<700){
+ 
+    switch(catstats[0]){
+        case 0:
+            if(catstats[1]<catFriendship['base1']+catFriendship['up']*catCharacters[catcharacter]){
                 let answer=[ `./cats/`+catstats[0]+'.gif',catname+`은(는) 분명 들었지만 모르는 척 합니다.`];
                 return  answer ;
                 
-            }else if(catstats[1]<800){
+            }else if(catstats[1]<catFriendship['base2']+catFriendship['up']*catCharacters[catcharacter]){
                
                 let answer=[ `./cats/w`+catstats[0]+'.gif',catname+`이(가) 듣고 쳐다봅니다.`];
                 return answer
@@ -36,33 +39,34 @@ function callCat(catname,catstats,catcharacter){
             }
 
        
-        case"호기심 많음":
-        if(catstats[1]<300){
+        case 1:
+        if(catstats[1]<catFriendship['base1']+catFriendship['up']*catCharacters[catcharacter]){
             let answer=[ `./cats/`+catstats[0]+'.gif',catname+`은(는) 분명 들었지만 모르는 척 합니다.`];
                 return  answer ;
-        }else if(catstats[1]<600){
+        }else if(catstats[1]<catFriendship['base2']+catFriendship['up']*catCharacters[catcharacter]){
             let answer=[ `./cats/w`+catstats[0]+'.gif',catname+`이(가) 듣고 쳐다봅니다.`];
             return answer
         }else {
             let answer=[ `./cats/a`+catstats[0]+'.gif',catname+`이(가) 듣고 대답합니다.`];
             return  answer
         } 
-        case"소심함":
-        if(catstats[1]<500){
+        case 2:
+        if(catstats[1]<catFriendship['base1']+catFriendship['up']*catCharacters[catcharacter]){
             let answer=[ `./cats/`+catstats[0]+'.gif',catname+`은(는) 분명 들었지만 모르는 척 합니다.`];
             return  answer ;
-        }else if(catstats[1]<600){
+        }else if(catstats[1]<catFriendship['base2']+catFriendship['up']*catCharacters[catcharacter]){
             let answer=[ `./cats/w`+catstats[0]+'.gif',catname+`이(가) 듣고 쳐다봅니다.`];
             return answer
         }else {
             let answer=[ `./cats/a`+catstats[0]+'.gif',catname+`이(가) 듣고 대답합니다.`];
             return  answer
         }   
-        case"개냥이":
-        if(catstats[1]<200){
+        case 3:
+           
+        if(catstats[1]<catFriendship['base1']+catFriendship['up']*catCharacters[catcharacter]){
             let answer=[ `./cats/`+catstats[0]+'.gif',catname+`은(는) 분명 들었지만 모르는 척 합니다.`];
                 return  answer ;
-        }else if(catstats[1]<300){
+        }else if(catstats[1]<catFriendship['base2']+catFriendship['up']*catCharacters[catcharacter]){
             let answer=[ `./cats/w`+catstats[0]+'.gif',catname+`이(가) 듣고 쳐다봅니다.`];
             return answer
         }else {
@@ -95,7 +99,7 @@ function behaviorOfCat(catstats,catname,catcharacter){
     if(isSleep<61){
       return  sleepCat(catname,catstats);
     }else{
-        if(isSleep<70){
+        if(isSleep<75){
           return  danceCat(catname,catstats);
         }else{
          return   normal(catname,catstats);

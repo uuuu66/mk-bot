@@ -12,7 +12,7 @@ const userSchema=new Schema({
         default:"!@#!@#!@#!@#!@##@#$$",
        
     },
-
+    
     isgaming:{
         type:Number,
         default:false,
